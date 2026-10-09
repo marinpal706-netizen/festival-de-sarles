@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<!--
+================================================================
+ FESTIVAL DE SARLES · LEE ESTO PRIMERO (2 minutos)
+================================================================
+ ¿DÓNDE CAMBIO LAS COSAS?
+   Solo en el "PANEL DE CONTROL", justo debajo de este mensaje.
+   El resto del archivo NO hace falta tocarlo.
+
+ ¿CÓMO?
+   1. Abre este archivo con el Bloc de notas.
+   2. Pulsa Ctrl+F y busca el paso que quieras. Ejemplo: PASO 5
+   3. Cambia SOLO el texto que está entre comillas "así".
+   4. Guarda (Ctrl+G) y en el navegador pulsa F5.
+
+ 3 REGLAS PARA NO ROMPERLO
+   1. No borres comillas " , comas , llaves { } ni corchetes [ ].
+   2. En una lista, cada línea acaba en coma MENOS la última.
+   3. Los textos que empiezan por // o están entre /* y */ son
+      notas: no hacen nada.
+
+ ¿SE HA ROTO ALGO? Pulsa Ctrl+Z hasta que vuelva a funcionar.
+ Haz una copia del archivo antes de empezar.
+
+ LISTA DE PASOS
+   1 Datos básicos y logo       10 Premios
+   2 Colores                    11 Sobre el festival
+   3 Efectos (activar/quitar)   12 Preguntas frecuentes
+   4 Títulos de secciones       13 Cuestionario
+   5 Anuncios                   14 Patrocinadores
+   6 Cortos y tráilers          15 Cómo llegar
+   7 Horarios                   16 Redes sociales
+   8 Participantes              17 Correo (inscripciones)
+   9 Galería de fotos           18 Votación
+
+ CARPETA DE IMÁGENES
+   Crea una carpeta "img" JUNTO a este archivo y guarda ahí tus fotos:
+     mi-carpeta/
+       festival.html   (este archivo)
+       img/            (logo.png, poster1.jpg, lucia.jpg, galeria1.jpg...)
+       videos/         (opcional, para cortos .mp4)
+   En el panel escribe la ruta así:  "img/logo.png"
+   El nombre debe ser IDÉNTICO (mayúsculas y extensión incluidas).
+================================================================
+-->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Texto que sale en la pestaña del navegador -->
+<title>Festival de Sarles · Cortometrajes de terror</title>
+<!-- ⬇ PANEL DE CONTROL ⬇ (aquí es donde se cambia todo) -->
+<script>
+/* ############################################################
+   PANEL DE CONTROL: AQUÍ SE CAMBIA TODO
+   ############################################################ */
+
+/* ============================================================
+   PASO 1 · DATOS BÁSICOS DEL FESTIVAL
+   ============================================================
+   QUÉ ES: el nombre, el logo, la frase y las fechas de la portada.
+   QUÉ CAMBIAR (solo el texto entre comillas):
+     nombre        = nombre del festival (menú de arriba y pestaña del navegador)
+     tituloPequeno = texto pequeño rojo sobre el título grande
+     titulo        = el título GRANDE de la portada
+     logo          = tu logo. Ejemplo: "img/logo.png"   (vacío "" = sin logo)
+     lema          = la frase bajo el título
+     fechas        = las fechas que se ven en la portada
+     inicio        = fecha de la cuenta atrás. Formato: "2026-11-12T20:30:00"
+                     (año-mes-día, la letra T, y hora:minutos:segundos)
+     pie           = el texto de abajo del todo
+   ============================================================ */
+const FESTIVAL = {
+  nombre: "FESTIVAL DE SARLES",
+  tituloPequeno: "FESTIVAL DE",
+  titulo: "SARLES",
+  logo: "",
+  lema: "Cortometrajes de terror. El futuro mejor festival de cine de terror",
+  fechas: "1 JULIO · 2 JULIO · 3 JULIO",
+  pie: "© 2026 Festival de Sarles · Todos los derechos reservados"
+};
+
+/* ============================================================
+   PASO 2 · COLORES
+   ============================================================
+   QUÉ ES: los colores de toda la web.
+   QUÉ CAMBIAR: el código entre comillas (una # y 6 letras o números).
+   CÓMO CONSEGUIR UN CÓDIGO: busca en Google "selector de color", elige un color
+   y copia su código (ejemplo: #a3121c).
+   LOS 2 QUE MÁS SE NOTAN: rojoOscuro y rojoBrillante.
+   IDEAS (sustituye esos dos códigos por estos):
+     Verde tóxico:  rojoOscuro "#1f7a2e"   rojoBrillante "#3dff6b"
+     Morado:        rojoOscuro "#5b1a8a"   rojoBrillante "#b25cff"
+     Azul fantasma: rojoOscuro "#14507a"   rojoBrillante "#4cc3ff"
+   (los nombres dicen "rojo", pero puede ser cualquier color)
+   ============================================================ */
+const COLORES = {
+  fondo:         "#0c0809",   // fondo de la web
+  tarjetas:      "#17100f",   // fondo de cuadros y tarjetas
+  rojoOscuro:    "#a3121c",   // color principal
+  rojoBrillante: "#e0303b",   // color de detalles y brillos
+  texto:         "#ece4d6",   // color de las letras
+  textoGris:     "#9c9086",   // letras secundarias
+  lineas:        "#2e2120"    // líneas finas
+};
+
+/* ============================================================
+   PASO 3 · EFECTOS (ACTIVAR O QUITAR)
+   ============================================================
+   QUÉ ES: los efectos visuales. Cada uno tiene un interruptor.
+   QUÉ CAMBIAR: pon  true  para ACTIVAR el efecto o  false  para QUITARLO.
+   (sin comillas, solo la palabra true o false)
+     sonda    = el cursor rojo con radar que sigue al ratón
+     barra    = barra de sangre arriba que se llena al bajar
+     gotas    = gotas de sangre cayendo en la portada
+     grano    = ruido de película antigua sobre la web
+     linterna = botón de linterna que sigue al ratón
+     ojos     = ojos rojos que aparecen a veces en la oscuridad
+     rayo     = relámpago blanco de vez en cuando
+     glitch   = los títulos tiemblan al pasar el ratón
+     trazo    = línea roja bajo cada título
+   ============================================================ */
+const EFECTOS = {
+  sonda: true,
+  barra: true,
+  gotas: true,
+  grano: true,
+  linterna: true,
+  ojos: true,
+  rayo: true,
+  glitch: true,
+  trazo: true
+};
+
+/* ============================================================
+   PASO 4 · TÍTULOS DE LAS SECCIONES
+   ============================================================
+   QUÉ ES: el título grande y la frase gris de cada sección de la web.
+   QUÉ CAMBIAR: cada línea es   sección: ["Título", "Frase gris"],
+   Cambia SOLO los dos textos entre comillas. No cambies el nombre de la izquierda.
+   ("sobre" y "llegar" solo llevan título.)
+   ============================================================ */
+const TITULOS = {
+  sobre:          ["Sobre el festival"],
+  anuncios:       ["Anuncios importantes", "Todo lo que necesitas saber sobre el festival."],
+  horarios:       ["Horarios", "Elige el día para ver las proyecciones."],
+  cortos:         ["Cortometrajes a concurso", "Pulsa un póster para ver el tráiler, la sinopsis y el autor."],
+  premios:        ["Premios", "Las categorías a concurso y lo que se llevan los ganadores."],
+  gente:          ["Quién participa", "Directores, actores y jurado de esta edición."],
+  galeria:        ["Galería", "Imágenes de ediciones anteriores. Pulsa una para ampliarla."],
+  quiz:           ["Cuestionario de terror", "¿Cuánto sabes de cine de miedo? Demuéstralo."],
+  patrocinadores: ["Patrocinadores", "Gracias a quienes hacen posible el festival."],
+  llegar:         ["Cómo llegar"],
+  faq:            ["Preguntas frecuentes", "Lo que más nos preguntáis. Pulsa una pregunta para ver la respuesta."],
+  inscripcion:    ["Inscribe tu cortometraje", "¿Eres director/a? Sube tu corto a YouTube, Vimeo o Drive y pega aquí el enlace."],
+  redes:          ["Síguenos", "Novedades, tráilers y sorpresas en nuestras redes."]
+};
+
+/* ============================================================
+   PASO 5 · ANUNCIOS
+   ============================================================
+   QUÉ ES: los avisos de la sección "Anuncios importantes".
+   QUÉ CAMBIAR (cada anuncio es UNA línea):
+     f = fecha     t = título     d = texto del aviso
+   AÑADIR uno  → copia una línea entera y pégala debajo.
+   BORRAR uno  → borra su línea.
+   ⚠ Todas las líneas acaban en coma, MENOS la última.
+   ⚠ No escribas comillas dobles " dentro de un texto. Usa «así».
+   ============================================================ */
+const anuncios = [
+  {f:"09 OCT 2026", t:"Tema del Cortometraje", d:"El cortometraje tendrá que ser obligatoriamente de terror"},
+  {f:"09 OCT 2026", t:"Finalización del festival", d:"El ultimo dia para entregar el cortometraje sera el 29 de Junio."},
+  {f:"09 OCT 2026", t:"Invitado especial", d:"Habrá coloquio con los directores tras la sesión de clausura."}
+];
+
+/* ============================================================
+   PASO 6 · CORTOMETRAJES
+   ============================================================
+   QUÉ ES: los pósters de los cortos. Al pulsar uno se abre su ficha con tráiler,
+   sinopsis y autor. Cada corto es UN BLOQUE entre llaves { }.
+   QUÉ CAMBIAR (dentro de cada bloque):
+     t       = título del corto
+     autor   = director o directora
+     dur     = duración. Ejemplo: "12 min"
+     sin     = sinopsis (de qué va)
+     trailer = enlace de YouTube del tráiler. Copia la dirección de la barra del
+               navegador. Sin tráiler todavía: ""
+     corto   = enlace del corto COMPLETO (YouTube, Vimeo o "videos/corto1.mp4").
+               Si lo dejas "", no sale el botón "Ver corto completo".
+     poster  = imagen del póster. Ejemplo: "img/poster1.jpg"  (vacío "" = solo color)
+     c       = color de fondo si no hay póster. Ejemplo: "#5a0a12"
+   AÑADIR un corto  → copia un bloque entero (de { a }) y pégalo debajo.
+   BORRAR un corto  → borra su bloque.
+   ⚠ Entre bloques hay coma, menos tras el último.
+   ⚠ Si cambias el orden o borras uno, revisa el PASO 7 (horarios).
+
+   CÓMO AÑADIR MÁS CORTOS (no hay límite, la web los coloca sola):
+     1. Copia esta línea de plantilla entera:
+        {t:"Título", autor:"Nombre", dur:"10 min", sin:"De qué va.", trailer:"", corto:"", poster:"", c:"#2b2b2b"},
+     2. Pégala justo antes del corchete de cierre ]; de la lista, o debajo de otro corto.
+     3. Rellena los textos entre comillas.
+     4. Mira que el corto anterior acabe en coma y que el último NO la lleve.
+     5. Si quieres ponerlo en el horario, usa su número (el último de la lista
+        tiene el número más alto, empezando a contar desde 0) en el PASO 7.
+   ============================================================ */
+const cortos = [
+  {t:"NO DISPONIBLE", autor:"NO DISPONIBLE",  dur:"NO DISPONIBLE", sin:"NO DISPONIBLE", trailer:"NO DISPONIBLE", corto:"NO DISPONIBLE", poster:"", c:"#5a0a12"},
+  {t:"NO DISPONIBLE",        autor:"NO DISPONIBLE", dur:"NO DISPONIBLE",  sin:"NO DISPONIBLE", trailer:"NO DISPONIBLE", corto:"NO DISPONIBLE", poster:"", c:"#10243a"},
+  {t:"NO DISPONIBLE",   autor:"NO DISPONIBLE", dur:"NO DISPONIBLE", sin:"NO DISPONIBLE", trailer:"NO DISPONIBLE", corto:"NO DISPONIBLE", poster:"", c:"#2a1a05"},
+  {t:"NO DISPONIBLE",         autor:"NO DISPONIBLE", dur:"NO DISPONIBLE",  sin:"NO DISPONIBLE", trailer:"NO DISPONIBLE", corto:"NO DISPONIBLE", poster:"", c:"#1c0f2e"},
+  {t:"NO DISPONIBLE",           autor:"NO DISPONIBLE",  dur:"NO DISPONIBLE", sin:"NO DISPONIBLE", trailer:"NO DISPONIBLE", corto:"NO DISPONIBLE", poster:"", c:"#0f2a14"},
+  {t:"NO DISPONIBLE",      autor:"NO DISPONIBLE",   dur:"NO DISPONIBLE",  sin:"NO DISPONIBLE", trailer:"NO DISPONIBLE", corto:"NO DISPONIBLE", poster:"", c:"#2b2b2b"}
+];
+
+/* ============================================================
+   PASO 7 · HORARIOS
+   ============================================================
+   QUÉ ES: la agenda, con una pestaña por día.
+   PARTE 1, "dias": los nombres de las pestañas. Un texto por día.
+   PARTE 2, "horario": una lista por día, en el mismo orden que "dias".
+     Cada fila:  ["hora", qué, número, "sala"]
+   HAY 2 TIPOS DE FILA:
+     A) Un CORTO. Pon el NÚMERO del corto dos veces. Se cuenta desde 0:
+        primer corto del PASO 6 = 0, segundo = 1, tercero = 2...
+        Ejemplo: ["20:00", 0, 0, "Sala principal"]
+     B) OTRA COSA (coloquio, gala...). Escribe el texto y pon null en el número.
+        Ejemplo: ["21:00", "Coloquio con directores", null, "Sala 2"]
+   AÑADIR un día  → un nombre nuevo en "dias" y una lista [ ] nueva en "horario".
+   AÑADIR una fila → copia una fila dentro de su día.
+   ⚠ Cuida las comas entre filas.
+   ============================================================ */
+const dias = ["Viernes 31 Oct", "Sábado 1 Nov", "Domingo 2 Nov"];
+const horario = [
+  [["19:00","Inauguración y bienvenida",null,"Sala principal"], ["20:00",0,0,"Sala principal"], ["21:00",1,1,"Sala principal"]],
+  [["18:00",2,2,"Sala principal"], ["19:30",3,3,"Sala principal"], ["21:00","Coloquio con directores",null,"Sala 2"]],
+  [["18:00",4,4,"Sala principal"], ["19:30",5,5,"Sala principal"], ["21:30","Gala de premios",null,"Sala principal"]]
+];
+
+/* ============================================================
+   PASO 8 · PARTICIPANTES
+   ============================================================
+   QUÉ ES: los círculos con las fotos de directores, actores y jurado.
+   QUÉ CAMBIAR (una línea por persona):
+     n    = nombre
+     r    = rol ("Director", "Actriz", "Jurado"...)
+     foto = su foto. Ejemplo: "img/lucia.jpg"  (vacío "" = salen las iniciales)
+   CONSEJO: fotos cuadradas, con la cara en el centro.
+   AÑADIR o BORRAR → copia o borra una línea.
+   ⚠ Coma al final de todas las líneas, menos la última.
+   ============================================================ */
+const gente = [
+  {n:"NO DISPONIBLE",  r:"NO DISPONIBLE", foto:""},
+  {n:"NO DISPONIBLE", r:"NO DISPONIBLE",  foto:""},
+  {n:"NO DISPONIBLE", r:"NO DISPONIBLE", foto:""},
+  {n:"NO DISPONIBLE", r:"NO DISPONIBLE",  foto:""},
+  {n:"NO DISPONIBLE",   r:"NO DISPONIBLE",    foto:""},
+  {n:"NO DISPONIBLE",    r:"NO DISPONIBLE",    foto:""}
+];
+
+/* ============================================================
+   PASO 9 · GALERÍA DE FOTOS
+   ============================================================
+   QUÉ ES: la rejilla de fotos de ediciones anteriores. Al pulsar una se amplía.
+   QUÉ CAMBIAR: escribe la ruta de cada foto entre comillas, separadas por comas.
+   Ejemplo:  const galeria = ["img/g1.jpg", "img/g2.jpg", "img/g3.jpg"];
+   Puedes poner todas las que quieras.
+   Cada "" vacío sale como un cuadro oscuro de relleno: bórralo cuando tengas fotos.
+   ============================================================ */
+const galeria = ["", "", "", "", "", ""];
+
+/* ============================================================
+   PASO 10 · PREMIOS
+   ============================================================
+   QUÉ ES: las tarjetas con las categorías del concurso.
+   QUÉ CAMBIAR (una línea por premio):
+     e = emoji que hace de icono (cópialo de cualquier web de emojis)
+     t = nombre del premio
+     d = explicación breve
+     p = lo que gana el ganador. Ejemplo: "Trofeo + 500 €"
+   AÑADIR o BORRAR → copia o borra una línea.
+   ⚠ Coma al final de todas las líneas, menos la última.
+   ============================================================ */
+const premios = [
+  {e:"🏆", t:"Mejor cortometraje", d:"El corto que más nos hizo temblar, elegido por el jurado.", p:"Diploma"},
+  {e:"🎬", t:"Mejor dirección",    d:"Para la mirada más personal y atrevida.",                  p:"diploma"},
+  {e:"🩸", t:"Premio del público", d:"El más votado por quienes vienen al festival.",            p:"diploma"},
+  {e:"👁", t:"Mejor ambientación", d:"Fotografía, sonido y efectos que dan miedo de verdad.",    p:"diploma"}
+];
+
+/* ============================================================
+   PASO 11 · SOBRE EL FESTIVAL
+   ============================================================
+   QUÉ ES: un texto de presentación y unas cifras que se cuentan solas.
+   QUÉ CAMBIAR:
+     texto  = tu presentación
+     cifras = las casillas con números. Cada una:
+                n = el número, SIN comillas y sin puntos. Ejemplo: 3000
+                t = lo que significa. Ejemplo: "espectadores"
+   AÑADIR o BORRAR una cifra → copia o borra una línea. Quedan bien 3 o 4.
+   ============================================================ */
+const SOBRE = {
+  texto: "El Festival de Sarles nació para dar voz a los nuevos directores del cine de terror. Tres noches de cortometrajes, coloquios y mucho miedo, abiertas a quien se atreva a entrar en la sala.",
+  cifras: [
+    {n:1,    t:"ediciones"},
+    {n:1,   t:"cortos presentados"},
+    {n:1 , t:"espectadores"}
+  ]
+};
+
+/* ============================================================
+   PASO 12 · PREGUNTAS FRECUENTES
+   ============================================================
+   QUÉ ES: preguntas que se despliegan al pulsarlas.
+   QUÉ CAMBIAR (una línea por pregunta):
+     q = la pregunta     a = la respuesta
+   AÑADIR o BORRAR → copia o borra una línea.
+   ⚠ Coma al final de todas las líneas, menos la última.
+   ============================================================ */
+const faq = [
+  {q:"¿Cuánto cuestan las entradas?", a:"Escribe aquí el precio y dónde se compran."},
+  {q:"¿Hay edad mínima?", a:"Las sesiones son para mayores de 16 años. Menores, siempre acompañados."},
+  {q:"¿Cuánto dura cada sesión?", a:"Entre 60 y 90 minutos, con un breve descanso entre cortos."},
+  {q:"¿Cómo envío mi cortometraje?", a:"Rellena el formulario de inscripción de esta página con el enlace a tu corto."},
+  {q:"¿La sala es accesible?", a:"Sí, hay acceso para sillas de ruedas. Escríbenos si necesitas ayuda."}
+];
+
+/* ============================================================
+   PASO 13 · CUESTIONARIO
+   ============================================================
+   QUÉ ES: el juego de preguntas. Cada una tiene varias respuestas y una correcta.
+   QUÉ CAMBIAR (una línea por pregunta):
+     q = la pregunta
+     o = las respuestas, entre [ ] y separadas por comas
+     a = QUÉ NÚMERO es la correcta, contando desde 0:
+         primera = 0, segunda = 1, tercera = 2, cuarta = 3
+   EJEMPLO:
+     {q:"¿Quién dirigió Psicosis?", o:["Kubrick","Hitchcock","Carpenter"], a:1},
+     (la correcta es "Hitchcock", la segunda, por eso a:1)
+   AÑADIR o BORRAR → copia o borra una línea.
+   ============================================================ */
+const preguntas = [
+  {q:"¿Quién dirigió «Psicosis» (1960)?", o:["Stanley Kubrick","Alfred Hitchcock","John Carpenter"], a:1},
+  {q:"¿En qué hotel transcurre «El Resplandor»?", o:["Overlook","Bates Motel","Cecil"], a:0},
+  {q:"¿Cómo se llama el asesino de «Halloween»?", o:["Jason Voorhees","Freddy Krueger","Michael Myers"], a:2},
+  {q:"¿Qué película española de terror (2007) dirigieron Balagueró y Plaza?", o:["[REC]","Los otros","Mamá"], a:0},
+  {q:"¿Qué película de 1999 popularizó el «found footage»?", o:["Posesión infernal","El proyecto de la bruja de Blair","Saw"], a:1}
+];
+
+/* ============================================================
+   PASO 14 · PATROCINADORES
+   ============================================================
+   QUÉ ES: la fila de logos de quienes apoyan el festival.
+   QUÉ CAMBIAR (una línea por patrocinador):
+     n    = nombre (se ve si no hay logo)
+     logo = su logo. Ejemplo: "img/patro1.png"  (mejor PNG con fondo transparente)
+     url  = su web, empezando por https://   (si no tiene, deja "#")
+   AÑADIR o BORRAR → copia o borra una línea.
+   ============================================================ */
+const patrocinadores = [
+  {n:"Patrocinador 1", logo:"", url:"#"},
+  {n:"Patrocinador 2", logo:"", url:"#"},
+  {n:"Patrocinador 3", logo:"", url:"#"},
+  {n:"Patrocinador 4", logo:"", url:"#"}
+];
+
+/* ============================================================
+   PASO 15 · CÓMO LLEGAR
+   ============================================================
+   QUÉ ES: la dirección y un mapa de Google.
+   QUÉ CAMBIAR:
+     nombre    = nombre del lugar
+     direccion = calle, número y ciudad. El mapa se pone SOLO con esta dirección.
+     info      = consejos: aparcamiento, transporte, hora de apertura...
+     mapa      = déjalo "" (vacío). Solo para usuarios avanzados.
+   ============================================================ */
+const LUGAR = {
+  nombre: "NO DISPONIBLE",
+  direccion: "NO DISPONIBLE",
+  mapa: "",
+  info: "NO DISPONIBLE"
+};
+
+/* ============================================================
+   PASO 16 · REDES SOCIALES
+   ============================================================
+   QUÉ ES: los botones de la sección "Síguenos".
+   QUÉ CAMBIAR (una línea por red):
+     n = texto del botón        u = enlace a tu perfil (empieza por https://)
+   Cómo conseguir el enlace: entra en tu perfil y copia la dirección del navegador.
+   AÑADIR o BORRAR → copia o borra una línea. Borra las redes que no uses.
+   ============================================================ */
+const redes = [
+  {n:"Instagram",   u:"https://instagram.com/tu_usuario"},
+  {n:"TikTok",      u:"https://tiktok.com/@tu_usuario"},
+  {n:"YouTube",     u:"https://youtube.com/@tu_canal"},
+  {n:"X / Twitter", u:"https://x.com/tu_usuario"},
+  {n:"Facebook",    u:"https://facebook.com/tu_pagina"}
+];
+
+/* ============================================================
+   PASO 17 · CORREO (INSCRIPCIONES Y VOTOS)
+   ============================================================
+   QUÉ ES: a qué correo te llegan las inscripciones de cortos y los votos.
+   (Una página web suelta no puede mandar correos sola. Hay 2 formas.)
+   FORMA A, la buena (Formspree, gratis):
+     1. Entra en formspree.io y crea una cuenta con tu Gmail.
+     2. Pulsa "New Form" y pon tu Gmail.
+     3. Te dará un enlace como https://formspree.io/f/abcdwxyz . Cópialo.
+     4. Pégalo en  formulario: ""  (entre las comillas).
+     5. Sube la web a internet y haz una prueba. Formspree te pedirá confirmar
+        tu correo la primera vez.
+   FORMA B, sencilla: deja  formulario: ""  y pon tu Gmail en  email.
+     Al enviar se abre el correo de la persona con el mensaje ya escrito.
+     Con esta forma NO funcionan los votos, solo las inscripciones.
+
+   ETIQUETA AUTOMÁTICA EN TU GMAIL (se hace UNA sola vez, en Gmail):
+     Cada inscripción llega con el asunto:  SARLESCORTO · Inscripción · Título del corto
+     Con eso Gmail puede ponerle una etiqueta sola. Pasos:
+       1. En Gmail, pulsa el icono de opciones (las rayitas) en la barra de búsqueda.
+       2. En "Asunto" escribe:  SARLESCORTO   y pulsa "Crear filtro".
+       3. Marca "Aplicar la etiqueta" > "Nueva etiqueta" > ponle nombre
+          (ej: Cortos) > Crear.
+       4. (Opcional) Marca también "Marcar como importante" o "No enviar a spam".
+       5. Pulsa "Crear filtro". Listo: todas las inscripciones nuevas llevarán la etiqueta.
+     Para los votos haz lo mismo con la palabra  SARLESVOTO  y otra etiqueta (ej: Votos).
+     Si cambias las palabras de arriba (etiquetaCorto y etiquetaVoto), usa en Gmail
+     las mismas palabras que pongas aquí.
+     ⚠ El filtro solo etiqueta los correos NUEVOS. Para los que ya tengas, en Gmail
+     busca  SARLESCORTO, selecciónalos todos y ponles la etiqueta a mano.
+   ============================================================ */
+const CONTACTO = {
+  email: "marinpal706@gmail.com",
+  formulario: "https://formspree.io/f/mljgbvoa",   // ej: "https://formspree.io/f/abcdwxyz"
+  etiquetaCorto: "SARLESCORTO",   // palabra que llevará el asunto de cada inscripción
+  etiquetaVoto: "SARLESVOTO"      // palabra que llevará el asunto de cada voto
+};
+
+/* ============================================================
+   PASO 18 · VOTACIÓN DEL PÚBLICO
+   ============================================================
+   QUÉ ES: el botón "Votar este corto" dentro de la ficha de cada corto.
+   ABRIR la votación  → cambia  abierta: false  por  abierta: true  y guarda.
+   CERRAR la votación → cambia  abierta: true   por  abierta: false.
+   (Con false, los botones salen apagados.)
+   CÓMO VES LOS VOTOS: cada voto llega a tu Gmail con el asunto
+   "VOTO · nombre del corto". Para contarlos, busca en Gmail ese texto.
+   Necesita la FORMA A del paso anterior.
+   TRUCO: crea en Gmail un filtro con la palabra SARLESVOTO (explicado en el paso 17)
+   y todos los votos quedarán juntos en una etiqueta "Votos".
+   OTROS TEXTOS (cámbialos si quieres):
+     textoCerrado = lo que pone el botón cuando está cerrada
+     info         = mensaje sobre los pósters con la votación cerrada
+     infoAbierta  = mensaje con la votación abierta
+   ⚠ Cada persona vota 1 vez por navegador. Para un concurso serio con premio,
+   conviene un sistema de votación externo.
+   ============================================================ */
+const VOTACION = {
+  abierta: true,
+  textoCerrado: "Votación cerrada",
+  info: "La votación del público se abrirá durante el festival. ¡Vuelve pronto!",
+  infoAbierta: "¡Votación abierta! Entra en tu corto favorito y pulsa «Votar»."
+};
+
+/* ############################################################
+   FIN DEL PANEL DE CONTROL. DE AQUÍ PARA ABAJO NO HACE FALTA TOCAR NADA.
+   ############################################################ */
+</script>
+<!-- ⬆ FIN DEL PANEL. De aquí para abajo no hace falta tocar nada. ⬆ -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* Colores por defecto. Se cambian en el PANEL DE CONTROL (PASO 2), no aquí. */
+:root{
+  --ink:#0c0809;    /* fondo principal */
+  --panel:#17100f;  /* fondo de tarjetas */
+  --blood:#a3121c;  /* rojo oscuro (bordes, botones) */
+  --glow:#e0303b;   /* rojo brillante (detalles) */
+  --bone:#ece4d6;   /* color del texto */
+  --dim:#9c9086;    /* texto secundario (gris) */
+  --line:#2e2120;   /* líneas finas */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+/* Tamaño del texto general: cambia 17px si lo quieres más grande o pequeño */
+body{background:var(--ink);color:var(--bone);font:17px/1.65 Lora,Georgia,serif}
+h1,h2,h3,.tab,.btn{font-family:Cinzel,Georgia,serif}
+a{color:inherit}
+section{padding:90px 6vw;max-width:1200px;margin:auto}
+h2{font-size:clamp(28px,4vw,44px);margin-bottom:10px;letter-spacing:.04em}
+.sub{color:var(--dim);margin-bottom:38px;max-width:60ch}
+
+/* MENÚ SUPERIOR */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 6vw;background:rgba(12,8,9,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav b{font-family:Cinzel;font-size:18px;letter-spacing:.1em;display:flex;align-items:center;gap:10px}
+.nav b img{height:38px}            /* tamaño del logo en el menú */
+.nav div a{margin-left:16px;text-decoration:none;font-size:14px;color:var(--dim);transition:.25s}
+.nav div a:hover{color:var(--glow)}
+
+/* PORTADA */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;padding:120px 6vw 60px;max-width:none;background:radial-gradient(ellipse at 50% 30%,#3a0a0f 0%,var(--ink) 65%)}
+.fog{position:absolute;inset:-20%;background:radial-gradient(circle at 20% 60%,rgba(236,228,214,.07),transparent 40%),radial-gradient(circle at 80% 40%,rgba(236,228,214,.06),transparent 45%);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(6%) scale(1.1)}}
+.hero h1{font-size:clamp(46px,11vw,130px);font-weight:800;line-height:1;letter-spacing:.06em;position:relative;animation:flicker 5s linear 1}
+.hero h1 span{display:block;font-size:.3em;letter-spacing:.5em;color:var(--glow);margin-bottom:12px}
+.hero .logo{max-width:220px;margin-bottom:24px;position:relative}  /* tamaño del logo grande */
+/* Animación de parpadeo del título (se puede borrar sin problema) */
+@keyframes flicker{0%,18%,22%,60%,64%,100%{opacity:1;text-shadow:0 0 30px var(--blood)}20%,62%{opacity:.15;text-shadow:none}21%{opacity:.8}}
+.hero p{position:relative;margin:26px auto 36px;max-width:52ch;color:var(--dim);font-style:italic;font-size:19px}
+.btn{display:inline-block;padding:14px 34px;border:1px solid var(--glow);background:transparent;color:var(--bone);text-decoration:none;font-size:15px;letter-spacing:.12em;cursor:pointer;transition:.3s;position:relative}
+.btn:hover{background:var(--blood);box-shadow:0 0 28px rgba(224,48,59,.5)}
+.date{position:relative;margin-top:44px;font-family:Cinzel;letter-spacing:.2em;font-size:14px}
+
+/* ANUNCIOS */
+.anun{display:grid;gap:16px}
+.anun article{background:var(--panel);border-left:4px solid var(--blood);padding:20px 24px;transition:.3s}
+.anun article:hover{transform:translateX(8px);border-color:var(--glow)}
+.anun time{color:var(--glow);font-size:13px;font-family:Cinzel}
+.anun h3{font-size:19px;margin:4px 0}
+.anun p{color:var(--dim);font-size:15px}
+
+/* HORARIOS */
+.tabs{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.tab{padding:10px 24px;background:none;border:1px solid var(--line);color:var(--dim);cursor:pointer;transition:.25s;font-size:14px}
+.tab.on,.tab:hover{border-color:var(--glow);color:var(--bone);background:var(--panel)}
+.row{display:grid;grid-template-columns:90px 1fr auto;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center;animation:in .5s}
+.row b{font-family:Cinzel;color:var(--glow);font-size:20px}
+.row small{color:var(--dim)}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+
+/* PÓSTERS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px}
+.poster{aspect-ratio:2/3;border:1px solid var(--line);cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;text-align:left;color:var(--bone);background-size:cover;background-position:center;transition:.4s}
+.poster::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.92))}
+.poster:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 14px 40px rgba(163,18,28,.5);border-color:var(--glow)}
+.poster *{position:relative}
+.poster h3{font-size:20px;line-height:1.2}
+.poster small{color:var(--dim)}
+.poster i{font-style:normal;font-family:Cinzel;font-size:12px;color:var(--glow);margin-top:6px}
+
+/* VENTANA DEL TRÁILER */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.modal.open{display:flex}
+.box{background:var(--panel);border:1px solid var(--blood);max-width:860px;width:100%;padding:28px;animation:pop .35s}
+@keyframes pop{from{opacity:0;transform:scale(.92)}}
+.box h3{font-size:28px}
+.box .meta{color:var(--glow);font-size:14px}
+.x{float:right;background:none;border:0;color:var(--bone);font-size:32px;cursor:pointer}
+
+/* PARTICIPANTES */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:26px}
+.person{text-align:center}
+.person .ph{width:130px;height:130px;margin:0 auto 12px;border-radius:50%;border:2px solid var(--blood);display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:34px;background:var(--panel) center/cover;transition:.4s;filter:grayscale(.8)}
+.person:hover .ph{filter:none;box-shadow:0 0 30px rgba(224,48,59,.55);transform:scale(1.07)}
+.person b{display:block}
+.person small{color:var(--dim)}
+
+/* CUESTIONARIO */
+.quiz{background:var(--panel);border:1px solid var(--line);padding:32px;max-width:720px}
+.quiz h3{font-size:22px;margin-bottom:18px;line-height:1.35}
+.opt{display:block;width:100%;text-align:left;padding:13px 18px;margin-bottom:10px;background:var(--ink);border:1px solid var(--line);color:var(--bone);font:inherit;cursor:pointer;transition:.25s}
+.opt:hover{border-color:var(--glow);padding-left:26px}
+.opt.ok{background:#12301a;border-color:#3fa85b}
+.opt.no{background:#3a0d11;border-color:var(--glow);animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.prog{height:3px;background:var(--line);margin-bottom:22px}
+.prog div{height:100%;background:var(--glow);transition:width .4s}
+.score{font-family:Cinzel;font-size:46px;color:var(--glow)}
+
+/* REDES SOCIALES */
+.social{display:flex;gap:16px;flex-wrap:wrap}
+.social a{padding:14px 26px;border:1px solid var(--line);text-decoration:none;font-family:Cinzel;transition:.3s}
+.social a:hover{background:var(--blood);border-color:var(--glow);transform:translateY(-4px)}
+footer{text-align:center;padding:40px;color:var(--dim);border-top:1px solid var(--line);font-size:14px}
+
+
+.box iframe,.box video{width:100%;aspect-ratio:16/9;border:0;background:#000;margin:16px 0}
+.box img{max-width:100%;max-height:80vh;display:block;margin:auto}
+.vtabs{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.votar{margin-top:14px}
+.votar:disabled{opacity:.45;cursor:not-allowed}
+.votar:disabled:hover{background:none;box-shadow:none}
+.msg{color:var(--glow);font-family:Cinzel}
+/* PATROCINADORES */
+.spons{display:flex;flex-wrap:wrap;gap:24px}
+.spons a{display:flex;align-items:center;justify-content:center;min-width:160px;height:80px;padding:10px 20px;border:1px solid var(--line);text-decoration:none;font-family:Cinzel;color:var(--dim);filter:grayscale(1);opacity:.7;transition:.3s}
+.spons a:hover{filter:none;opacity:1;border-color:var(--glow)}
+.spons img{max-height:60px;max-width:150px}
+/* CÓMO LLEGAR */
+.llegar{display:grid;grid-template-columns:1fr 1.4fr;gap:30px}
+.llegar iframe{width:100%;min-height:320px;border:1px solid var(--line);filter:invert(.9) hue-rotate(180deg) grayscale(.5)}
+/* GALERÍA */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.gal div{aspect-ratio:4/3;background:linear-gradient(135deg,var(--panel),#2a0a0e) center/cover;border:1px solid var(--line);cursor:zoom-in;transition:.4s;filter:grayscale(.7)}
+.gal div:hover{filter:none;transform:scale(1.03);border-color:var(--glow)}
+/* FORMULARIO */
+.form{max-width:640px;display:grid;gap:14px}
+.form input,.form textarea{width:100%;padding:13px 16px;background:var(--panel);border:1px solid var(--line);color:var(--bone);font:inherit}
+.form input:focus,.form textarea:focus{border-color:var(--glow);outline:none}
+@media(max-width:680px){.llegar{grid-template-columns:1fr}}
+
+/* ===== EFECTOS (para quitar uno, borra su bloque) ===== */
+/* EFECTO RUIDO DE PELÍCULA ANTIGUA. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:200;opacity:.08;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='.8' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain .6s steps(4) infinite}
+@keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+/* EFECTO SANGRE. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+.drips{position:absolute;top:58px;left:0;right:0}
+.drips i{position:absolute;top:0;width:7px;height:0;background:linear-gradient(var(--blood),var(--glow));border-radius:0 0 7px 7px;animation:drip 8s ease-in infinite}
+@keyframes drip{0%{height:0;opacity:1}40%,70%{height:var(--h);opacity:1}100%{height:var(--h);opacity:0}}
+/* EFECTO GLITCH. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+h2:hover{animation:glitch .4s steps(2) 2}
+@keyframes glitch{25%{transform:translate(-3px,1px);text-shadow:3px 0 var(--glow)}75%{transform:translate(3px,-1px);text-shadow:-3px 0 #38c8ff}}
+/* EFECTO LINTERNA. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+#dark{position:fixed;inset:0;z-index:150;pointer-events:none;display:none;background:radial-gradient(circle 170px at var(--x,50%) var(--y,50%),transparent 0,rgba(0,0,0,.96) 100%)}
+#dark.on{display:block}
+#lint{position:fixed;right:18px;bottom:18px;z-index:300;padding:10px 18px;background:var(--panel);border:1px solid var(--glow);color:var(--bone);cursor:pointer;font-family:Cinzel}
+/* EFECTO RELÁMPAGO. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+#rayo{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:190;mix-blend-mode:overlay}
+#rayo.on{animation:rayo .6s}
+@keyframes rayo{0%,30%,60%{opacity:0}10%,40%{opacity:.85}}
+
+/* ===== SECCIONES NUEVAS ===== */
+/* SOBRE EL FESTIVAL: texto + cifras animadas */
+.sobre{margin-top:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px}
+.cifra{border:1px solid var(--line);padding:22px 12px;text-align:center;background:var(--panel)}
+.cifra b{display:block;font-family:Cinzel;font-size:40px;color:var(--glow)}
+.cifra small{color:var(--dim)}
+/* PREMIOS: tarjetas */
+.premios{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.premio{background:var(--panel);border:1px solid var(--line);padding:28px 24px;transition:.4s}
+.premio:hover{border-color:var(--glow);transform:translateY(-6px);box-shadow:0 12px 34px rgba(163,18,28,.4)}
+.premio .ic{font-size:34px;margin-bottom:8px}
+.premio h3{font-size:20px}
+.premio p{color:var(--dim);font-size:15px;margin:6px 0 12px}
+.premio em{color:var(--glow);font-style:normal;font-family:Cinzel}
+/* PREGUNTAS FRECUENTES: se despliegan al pulsar */
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{cursor:pointer;font-family:Cinzel;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px;transition:.25s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--glow);font-size:26px;line-height:1;transition:.3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--glow)}
+.faq p{color:var(--dim);margin-top:10px;animation:in .4s}
+@media(max-width:800px){.sobre{grid-template-columns:1fr}}
+@media(max-width:1050px){.nav div a{margin-left:10px;font-size:12px}}
+
+/* ===== MÁS EFECTOS ===== */
+/* EFECTO BARRA DE SANGRE. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+#sangre{position:fixed;top:0;left:0;height:6px;width:0;z-index:60;background:linear-gradient(90deg,var(--blood),var(--glow));box-shadow:0 0 14px var(--glow)}
+#sangre::after{content:"";position:absolute;right:0;top:100%;width:8px;height:0;border-radius:0 0 8px 8px;background:var(--glow);animation:gota 2s ease-in infinite}
+@keyframes gota{0%{height:0;opacity:1}60%{height:26px;opacity:1}100%{height:26px;opacity:0}}
+/* EFECTO TRAZO DE SANGRE. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+h2::after{content:"";display:block;width:90px;height:4px;margin-top:10px;background:linear-gradient(90deg,var(--blood),var(--glow));border-radius:2px;transform-origin:left;transform:scaleX(0);transition:transform 1s .3s}
+.show h2::after{transform:scaleX(1)}
+/* EFECTO SONDA (CURSOR PERSONALIZADO). Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+.sonda,.punto{position:fixed;top:0;left:0;width:0;height:0;pointer-events:none;z-index:400;opacity:0;transition:opacity .3s}
+.sonda.on,.punto.on{opacity:1}
+html.csonda,html.csonda *{cursor:none!important}
+.punto{margin:0}
+.punto::after{content:"";position:absolute;width:6px;height:6px;left:-3px;top:-3px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px var(--glow)}
+.sonda{--t:34px}
+.sonda i{position:absolute;width:var(--t);height:var(--t);left:calc(var(--t)/-2);top:calc(var(--t)/-2);border:1.5px solid var(--glow);border-radius:50%;box-shadow:0 0 12px rgba(224,48,59,.5);transition:transform .25s,background .25s}
+.sonda i::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px dashed rgba(224,48,59,.55);animation:giro 8s linear infinite}
+@keyframes giro{to{transform:rotate(360deg)}}
+.sonda.hover i{transform:scale(1.7);background:rgba(224,48,59,.12)}
+.sonda.click i{transform:scale(.7)}
+.sonda.hover.click i{transform:scale(1.3)}
+@media(hover:none){.sonda,.punto{display:none}}
+/* EFECTO OJOS EN LA OSCURIDAD. Se activa o quita en el PANEL DE CONTROL (PASO 3). */
+.ojos{position:fixed;z-index:120;pointer-events:none;display:flex;gap:14px;opacity:0;animation:ojos 4.5s forwards}
+.ojos i{width:16px;height:8px;border-radius:50%;background:radial-gradient(circle,#fff 0,#ff3b3b 45%,transparent 70%);box-shadow:0 0 14px 3px var(--glow)}
+@keyframes ojos{0%{opacity:0;transform:scaleY(1)}15%,40%{opacity:1;transform:scaleY(1)}45%{opacity:1;transform:scaleY(.1)}50%,85%{opacity:1;transform:scaleY(1)}100%{opacity:0}}
+
+/* Interruptores de efectos (los controla el PASO 3 del PANEL DE CONTROL) */
+html.sin-sonda .sonda,html.sin-sonda .punto{display:none}
+html.sin-barra #sangre{display:none}
+html.sin-gotas .drips{display:none}
+html.sin-grano body::after{display:none}
+html.sin-linterna #lint,html.sin-linterna #dark{display:none!important}
+html.sin-ojos .ojos{display:none}
+html.sin-rayo #rayo{display:none}
+html.sin-glitch h2:hover{animation:none}
+html.sin-trazo h2::after{display:none}
+
+/* Aparición suave al hacer scroll */
+.rv{opacity:0;transform:translateY(30px);transition:1s}
+.rv.show{opacity:1;transform:none}
+@media(max-width:680px){.nav div a:nth-child(n+4){display:none}.row{grid-template-columns:70px 1fr}.row small:last-child{grid-column:2}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<!-- MENÚ SUPERIOR. El logo y el nombre se rellenan solos desde la PANEL DE CONTROL.
+     Si quieres quitar o añadir un enlace del menú, edita las líneas <a href="#..."> -->
+<nav class="nav">
+  <b id="navlogo"></b>
+  <div><a href="#anuncios">Anuncios</a><a href="#horarios">Horarios</a><a href="#cortos">Cortos</a><a href="#premios">Premios</a><a href="#gente">Gente</a><a href="#galeria">Galería</a><a href="#quiz">Quiz</a><a href="#llegar">Llegar</a><a href="#faq">FAQ</a><a href="#inscripcion">Inscríbete</a></div>
+</nav>
+
+<!-- PORTADA (los textos se cambian en la PANEL DE CONTROL) -->
+<header class="hero">
+  <div class="fog"></div>
+  <div class="drips" id="drips"></div>
+  <div id="herologo"></div>
+  <!-- El título grande se cambia en el PASO 1 del PANEL DE CONTROL. -->
+  <h1><span>FESTIVAL DE</span>SARLES</h1>  <!-- Para cambiar el título grande, edita estas palabras -->
+  <p id="lema"></p>
+  <a href="#cortos" class="btn">VER LOS CORTOS</a>
+  <div class="date" id="fechatxt"></div>
+</header>
+
+<!-- Las secciones siguientes se rellenan desde la PANEL DE CONTROL.
+     Aquí solo puedes cambiar los títulos (h2) y las frases grises (class="sub").
+     Para QUITAR una sección entera, borra desde <section> hasta </section>. -->
+<!-- SECCIÓN SOBRE EL FESTIVAL (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="sobre" class="rv">
+  <h2>Sobre el festival</h2>
+  <div class="sobre"><p id="sobretxt"></p><div class="cifras" id="cifras"></div></div>
+</section>
+
+<!-- SECCIÓN ANUNCIOS (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="anuncios" class="rv">
+  <h2>Anuncios importantes</h2>
+  <p class="sub">Todo lo que necesitas saber antes de entrar a la sala.</p>
+  <div class="anun" id="anun"></div>
+</section>
+
+<!-- SECCIÓN HORARIOS (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="horarios" class="rv">
+  <h2>Horarios</h2>
+  <p class="sub">Elige el día para ver las proyecciones.</p>
+  <div class="tabs" id="tabs"></div>
+  <div id="sched"></div>
+</section>
+
+<!-- SECCIÓN CORTOS (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="cortos" class="rv">
+  <h2>Cortometrajes a concurso</h2>
+  <p class="sub">Pulsa un póster para ver el tráiler, la sinopsis y el autor.</p>
+  <p class="msg" id="votinfo" style="margin-bottom:20px"></p>
+  <div class="grid" id="posters"></div>
+</section>
+
+<!-- SECCIÓN PREMIOS (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="premios" class="rv">
+  <h2>Premios</h2>
+  <p class="sub">Las categorías a concurso y lo que se llevan los ganadores.</p>
+  <div class="premios" id="premioslist"></div>
+</section>
+
+<!-- SECCIÓN PARTICIPANTES (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="gente" class="rv">
+  <h2>Quién participa</h2>
+  <p class="sub">Directores, actores y jurado de esta edición.</p>
+  <div class="people" id="people"></div>
+</section>
+
+<!-- SECCIÓN GALERÍA (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="galeria" class="rv">
+  <h2>Galería</h2>
+  <p class="sub">Imágenes de ediciones anteriores. Pulsa una para ampliarla.</p>
+  <div class="gal" id="gal"></div>
+</section>
+
+<!-- SECCIÓN CUESTIONARIO (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="quiz" class="rv">
+  <h2>Cuestionario de terror</h2>
+  <p class="sub">¿Cuánto sabes de cine de miedo? Demuéstralo.</p>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<!-- SECCIÓN PATROCINADORES (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="patrocinadores" class="rv">
+  <h2>Patrocinadores</h2>
+  <p class="sub">Gracias a quienes hacen posible el festival.</p>
+  <div class="spons" id="spons"></div>
+</section>
+
+<!-- SECCIÓN CÓMO LLEGAR (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="llegar" class="rv">
+  <h2>Cómo llegar</h2>
+  <p class="sub" id="lsub"></p>
+  <div class="llegar"><div id="linfo"></div><div id="lmapa"></div></div>
+</section>
+
+<!-- SECCIÓN PREGUNTAS FRECUENTES (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="faq" class="rv">
+  <h2>Preguntas frecuentes</h2>
+  <p class="sub">Lo que más nos preguntáis. Pulsa una pregunta para ver la respuesta.</p>
+  <div class="faq" id="faqlist"></div>
+</section>
+
+<!-- SECCIÓN INSCRIPCIÓN (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="inscripcion" class="rv">
+  <h2>Inscribe tu cortometraje</h2>
+  <p class="sub">¿Eres director/a? Sube tu corto a YouTube, Vimeo o Drive y pega aquí el enlace.</p>
+  <form class="form" id="insc">
+    <!-- CAMPOS DEL FORMULARIO: el texto placeholder="..." es lo que ve la persona dentro de la casilla. Para añadir un campo, copia una línea <input> y cambia name y placeholder. 'required' = obligatorio. -->
+    <input name="nombre" placeholder="Tu nombre" required>
+    <input name="email" type="email" placeholder="Tu email" required>
+    <input name="titulo" placeholder="Título del corto" required>
+    <input name="duracion" placeholder="Duración (minutos)" required>
+    <input name="enlace" type="url" placeholder="Enlace al vídeo (YouTube, Vimeo, Drive…)" required>
+    <textarea name="sinopsis" rows="4" placeholder="Sinopsis" required></textarea>
+    <button class="btn" type="submit">ENVIAR INSCRIPCIÓN</button>
+    <p class="msg" id="im"></p>
+  </form>
+</section>
+
+<!-- SECCIÓN REDES SOCIALES (título: PASO 4 del PANEL DE CONTROL) -->
+<section id="redes" class="rv">
+  <h2>Síguenos</h2>
+  <p class="sub">Novedades, tráilers y sorpresas en nuestras redes.</p>
+  <div class="social" id="social"></div>
+</section>
+
+<footer id="pie"></footer>
+
+<!-- SONDA (cursor): explicada en EFECTO SONDA. Para quitarla, borra estas dos líneas <div>. -->
+<div class="sonda" id="sonda"><i></i></div><div class="punto" id="punto"></div>
+<div id="sangre"></div><div id="dark"></div><div id="rayo"></div><button id="lint">🔦 Linterna</button>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box" id="box"></div></div>
+
+<script>
+/* NO TOCAR: aquí abajo está el motor que construye la web con tus datos. */
+// Aplicar colores, efectos, títulos y portada del PANEL DE CONTROL
+{
+  const mapa = {fondo:"--ink", tarjetas:"--panel", rojoOscuro:"--blood", rojoBrillante:"--glow", texto:"--bone", textoGris:"--dim", lineas:"--line"};
+  for(const k in mapa) if(COLORES[k]) document.documentElement.style.setProperty(mapa[k], COLORES[k]);
+  for(const k in EFECTOS) if(!EFECTOS[k]) document.documentElement.classList.add("sin-"+k);
+  for(const id in TITULOS){
+    const sec = document.getElementById(id); if(!sec) continue;
+    const h = sec.querySelector("h2"); if(h) h.textContent = TITULOS[id][0];
+    const sb = sec.querySelector(".sub"); if(sb && TITULOS[id][1] !== undefined) sb.textContent = TITULOS[id][1];
+  }
+  document.querySelector(".hero h1").innerHTML = `<span>${FESTIVAL.tituloPequeno}</span>${FESTIVAL.titulo}`;
+}
+const $ = s => document.querySelector(s);
+const ini = n => n.split(" ").map(w => w[0]).join("").slice(0,2);
+
+// Convierte cualquier enlace normal de YouTube al formato que necesita la web
+function yt(u){
+  if(!u) return "";
+  const m = u.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
+  return m ? "https://www.youtube.com/embed/" + m[1] : u;
+}
+
+// Logo, lema, fechas y pie
+document.title = FESTIVAL.nombre;
+const img = FESTIVAL.logo ? `<img src="${FESTIVAL.logo}" alt="Logo">` : "";
+$("#navlogo").innerHTML = img + FESTIVAL.nombre;
+$("#herologo").innerHTML = FESTIVAL.logo ? `<img class="logo" src="${FESTIVAL.logo}" alt="Logo">` : "";
+$("#lema").textContent = FESTIVAL.lema;
+$("#pie").textContent = FESTIVAL.pie;
+
+// Anuncios
+$("#anun").innerHTML = anuncios.map(a => `<article><time>${a.f}</time><h3>${a.t}</h3><p>${a.d}</p></article>`).join("");
+
+// Pósters y ventana del tráiler
+$("#posters").innerHTML = cortos.map((c,i) => `<button class="poster" onclick="abrir(${i})" style="background-color:${c.c};${c.poster ? `background-image:url('${c.poster}')` : `background-image:radial-gradient(circle at 50% 30%,${c.c},#000)`}"><h3>${c.t}</h3><small>${c.autor}</small><i>${c.dur}</i></button>`).join("");
+function player(u,tt){
+  if(!u) return "";
+  if(/\.(mp4|webm)$/i.test(u)) return `<video src="${u}" controls></video>`;
+  const m = u.match(/vimeo\.com\/(\d+)/);
+  return `<iframe src="${m ? "https://player.vimeo.com/video/"+m[1] : yt(u)}" allowfullscreen title="${tt}"></iframe>`;
+}
+function abrir(i){
+  const c = cortos[i], vs = [];
+  if(c.trailer) vs.push(["Tráiler", c.trailer]);
+  if(c.corto) vs.push(["Ver corto completo", c.corto]);
+  const tabs = vs.length > 1 ? vs.map((v,k) => `<button class="tab ${k?"":"on"}" onclick="ver(${i},${k},this)">${v[0]}</button>`).join("") : "";
+  $("#box").innerHTML = `<button class="x" onclick="cerrar()" aria-label="Cerrar">×</button><h3>${c.t}</h3><div class="meta">Dirigido por ${c.autor} · ${c.dur}</div><div class="vtabs">${tabs}</div><div id="pl">${vs.length ? player(vs[0][1],c.t) : `<p style="margin:16px 0;color:var(--dim)">Tráiler próximamente.</p>`}</div><p>${c.sin}</p><button class="btn votar" ${VOTACION.abierta ? "" : "disabled"} onclick="votar(${i})">${VOTACION.abierta ? "Votar este corto" : VOTACION.textoCerrado}</button> <span class="msg" id="vm"></span>`;
+  $("#modal").classList.add("open");
+}
+function ver(i,k,b){
+  const c = cortos[i], u = [c.trailer, c.corto].filter(Boolean)[k];
+  $("#pl").innerHTML = player(u,c.t);
+  document.querySelectorAll(".vtabs .tab").forEach(x => x.classList.remove("on")); b.classList.add("on");
+}
+async function enviar(d){
+  if(!CONTACTO.formulario) return false;
+  try{ const r = await fetch(CONTACTO.formulario,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(d)}); return r.ok; }catch(e){ return false; }
+}
+async function votar(i){
+  if(!VOTACION.abierta) return;
+  let h = null; try{ h = localStorage.getItem("votoSarles"); }catch(e){}
+  if(h){ $("#vm").textContent = "Ya has votado."; return; }
+  const ok = await enviar({_subject:CONTACTO.etiquetaVoto+" · "+cortos[i].t, tipo:"VOTO", corto:cortos[i].t});
+  if(!ok){ $("#vm").textContent = "No se pudo enviar el voto. Inténtalo más tarde."; return; }
+  try{ localStorage.setItem("votoSarles", cortos[i].t); }catch(e){}
+  $("#vm").textContent = "¡Voto registrado!";
+}
+function foto(s){ if(!s) return; $("#box").innerHTML = `<button class="x" onclick="cerrar()" aria-label="Cerrar">×</button><img src="${s}" alt="Foto de la galería">`; $("#modal").classList.add("open"); }
+function cerrar(){ $("#modal").classList.remove("open"); $("#box").innerHTML = ""; }
+$("#modal").onclick = e => { if(e.target.id === "modal") cerrar(); };
+document.onkeydown = e => { if(e.key === "Escape") cerrar(); };
+
+// Horarios
+$("#tabs").innerHTML = dias.map((d,i) => `<button class="tab" onclick="dia(${i})">${d}</button>`).join("");
+function dia(i){
+  document.querySelectorAll(".tab").forEach((t,j) => t.classList.toggle("on", i === j));
+  $("#sched").innerHTML = horario[i].map(([h,t,k,s]) => `<div class="row"><b>${h}</b><div>${typeof t === "number" ? `<a href="#cortos" onclick="abrir(${k})" style="text-decoration:none">${cortos[t].t}</a><br><small>${cortos[t].autor}</small>` : t}</div><small>${s}</small></div>`).join("");
+}
+dia(0);
+
+// Participantes
+$("#people").innerHTML = gente.map(p => `<div class="person"><div class="ph" ${p.foto ? `style="background-image:url('${p.foto}')"` : ""}>${p.foto ? "" : ini(p.n)}</div><b>${p.n}</b><small>${p.r}</small></div>`).join("");
+
+// Cuestionario
+let qi = 0, pts = 0;
+function pinta(){
+  const el = $("#quiz");
+  if(qi >= preguntas.length){
+    el.innerHTML = `<h3>Has terminado</h3><div class="score">${pts} / ${preguntas.length}</div><p style="margin:12px 0 22px">${pts >= preguntas.length*0.8 ? "Eres un auténtico experto del terror." : pts >= preguntas.length*0.4 ? "Nada mal, pero aún hay sombras que explorar." : "Te queda mucho cine de miedo por ver."}</p><button class="btn" onclick="qi=0;pts=0;pinta()">REPETIR</button>`;
+    return;
+  }
+  const p = preguntas[qi];
+  el.innerHTML = `<div class="prog"><div style="width:${qi/preguntas.length*100}%"></div></div><h3>${p.q}</h3>` + p.o.map((o,i) => `<button class="opt" onclick="resp(${i},this)">${o}</button>`).join("");
+}
+function resp(i,b){
+  const p = preguntas[qi], ops = document.querySelectorAll(".opt");
+  ops.forEach(o => o.disabled = true);
+  ops[p.a].classList.add("ok");
+  if(i === p.a) pts++; else b.classList.add("no");
+  setTimeout(() => { qi++; pinta(); }, 1100);
+}
+pinta();
+
+// Redes
+$("#social").innerHTML = redes.map(r => `<a href="${r.u}" target="_blank" rel="noopener">${r.n}</a>`).join("");
+
+// Cuenta atrás
+const fin = new Date(FESTIVAL.inicio);
+function tick(){
+  const d = fin - new Date(), base = FESTIVAL.fechas;
+  $("#fechatxt").textContent = d <= 0 ? base + " | ¡YA ESTÁ AQUÍ!" : base + " | CUENTA ATRÁS: " + Math.floor(d/864e5) + "d " + Math.floor(d%864e5/36e5) + "h " + Math.floor(d%36e5/6e4) + "m";
+}
+tick(); setInterval(tick, 6e4);
+
+// Votación, patrocinadores, lugar, galería
+$("#votinfo").textContent = VOTACION.abierta ? VOTACION.infoAbierta : VOTACION.info;
+$("#spons").innerHTML = patrocinadores.map(p => `<a href="${p.url}" target="_blank" rel="noopener">${p.logo ? `<img src="${p.logo}" alt="${p.n}">` : p.n}</a>`).join("");
+const q = encodeURIComponent(LUGAR.nombre + ", " + LUGAR.direccion);
+$("#lsub").textContent = LUGAR.nombre;
+$("#linfo").innerHTML = `<p><b>${LUGAR.direccion}</b></p><p style="color:var(--dim);margin:10px 0 22px">${LUGAR.info}</p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">ABRIR EN GOOGLE MAPS</a>`;
+$("#lmapa").innerHTML = `<iframe loading="lazy" title="Mapa" src="${LUGAR.mapa || "https://maps.google.com/maps?q="+q+"&output=embed"}"></iframe>`;
+$("#gal").innerHTML = galeria.map(s => `<div ${s ? `style="background-image:url('${s}')" onclick="foto('${s}')"` : ""}></div>`).join("");
+
+// Formulario de inscripción
+$("#insc").onsubmit = async e => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(e.target));
+  d._subject = CONTACTO.etiquetaCorto + " · Inscripción · " + d.titulo; d.tipo = "INSCRIPCIÓN";
+  if(CONTACTO.formulario){
+    const ok = await enviar(d);
+    $("#im").textContent = ok ? "¡Recibido! Te contestaremos pronto." : "Error al enviar. Inténtalo de nuevo.";
+    if(ok) e.target.reset();
+  } else {
+    const cuerpo = Object.entries(d).filter(([k]) => k[0] !== "_").map(([k,v]) => k+": "+v).join("\n");
+    location.href = "mailto:" + CONTACTO.email + "?subject=" + encodeURIComponent(d._subject) + "&body=" + encodeURIComponent(cuerpo);
+  }
+};
+
+// EFECTOS: sangre, linterna y relámpago
+const dr = $("#drips");
+for(let i = 0; i < 14; i++){ const el = document.createElement("i"); el.style.cssText = `left:${3+i*7}%;--h:${40+Math.random()*120}px;animation-delay:${Math.random()*6}s;animation-duration:${6+Math.random()*5}s`; dr.appendChild(el); }
+const dk = $("#dark"), lb = $("#lint");
+lb.onclick = () => { dk.classList.toggle("on"); lb.textContent = dk.classList.contains("on") ? "💡 Luz" : "🔦 Linterna"; };
+const mover = (x,y) => { dk.style.setProperty("--x", x+"px"); dk.style.setProperty("--y", y+"px"); };
+addEventListener("mousemove", e => mover(e.clientX, e.clientY));
+addEventListener("touchmove", e => mover(e.touches[0].clientX, e.touches[0].clientY));
+(function rayo(){ setTimeout(() => { const r = $("#rayo"); r.classList.add("on"); setTimeout(() => r.classList.remove("on"), 700); rayo(); }, 25000 + Math.random()*30000); })();  // cada 25-55 s
+
+// Sobre el festival (con cifras que se cuentan solas), premios y preguntas frecuentes
+$("#sobretxt").textContent = SOBRE.texto;
+$("#cifras").innerHTML = SOBRE.cifras.map(c => `<div class="cifra"><b data-n="${c.n}">0</b><small>${c.t}</small></div>`).join("");
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if(!e.isIntersecting) return;
+  cio.unobserve(e.target);
+  e.target.querySelectorAll("b").forEach(b => {
+    const n = +b.dataset.n, t0 = performance.now();
+    (function f(now){ const k = Math.min((now-t0)/1600, 1); b.textContent = Math.round(n*(1-Math.pow(1-k,3))).toLocaleString("es-ES"); if(k < 1) requestAnimationFrame(f); })(t0);
+  });
+}), {threshold:.4});
+cio.observe($("#cifras"));
+$("#premioslist").innerHTML = premios.map(p => `<div class="premio"><div class="ic">${p.e}</div><h3>${p.t}</h3><p>${p.d}</p><em>${p.p}</em></div>`).join("");
+$("#faqlist").innerHTML = faq.map(f => `<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join("");
+
+// MÁS EFECTOS: barra de sangre al bajar, sonda (cursor) y ojos en la oscuridad
+addEventListener("scroll", () => { const h = document.documentElement.scrollHeight - innerHeight; $("#sangre").style.width = (h > 0 ? scrollY/h*100 : 0) + "%"; });
+// Cursor sonda (se activa o quita en el PASO 3 del PANEL DE CONTROL)
+if(EFECTOS.sonda && matchMedia("(hover:hover) and (pointer:fine)").matches){
+  const VELOCIDAD = 0.18;   // lo rápido que el anillo sigue al ratón: 0.08 lento · 0.4 casi pegado
+  const so = $("#sonda"), pu = $("#punto");
+  let x = innerWidth/2, y = innerHeight/2, sx = x, sy = y;
+  document.documentElement.classList.add("csonda");
+  addEventListener("mousemove", e => {
+    x = e.clientX; y = e.clientY;
+    so.classList.add("on"); pu.classList.add("on");
+    pu.style.transform = `translate3d(${x}px,${y}px,0)`;
+    // lista de cosas que agrandan la sonda al pasar el ratón por encima:
+    so.classList.toggle("hover", !!e.target.closest("a,button,.poster,.opt,summary,.gal div,.person,input,textarea"));
+  });
+  document.documentElement.addEventListener("mouseleave", () => { so.classList.remove("on"); pu.classList.remove("on"); });
+  addEventListener("mousedown", () => so.classList.add("click"));
+  addEventListener("mouseup", () => so.classList.remove("click"));
+  (function seguir(){ sx += (x-sx)*VELOCIDAD; sy += (y-sy)*VELOCIDAD; so.style.transform = `translate3d(${sx}px,${sy}px,0)`; requestAnimationFrame(seguir); })();
+}
+(function ojos(){ setTimeout(() => {
+  const o = document.createElement("div"); o.className = "ojos"; o.innerHTML = "<i></i><i></i>";
+  o.style.left = (Math.random() < .5 ? 3+Math.random()*9 : 84+Math.random()*9) + "%"; o.style.top = (15+Math.random()*70) + "%";
+  document.body.appendChild(o); setTimeout(() => o.remove(), 4600); ojos();
+}, 20000+Math.random()*20000); })();  // cada 20-40 s
+
+// Aparición al hacer scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("show"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".rv").forEach(s => io.observe(s));
+</script>
+</body>
+</html>
